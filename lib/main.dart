@@ -19,6 +19,18 @@ class MyApp extends StatelessWidget {
   }
 }
 
+class CounterController extends ValueNotifier<int> {
+  CounterController({int initialValue = 0}) : super(initialValue);
+
+  void increment() {
+    ++value;
+  }
+
+  void decrement() {
+    --value;
+  }
+}
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
@@ -29,13 +41,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+  final counter = CounterController();
 
   @override
   Widget build(BuildContext context) {
@@ -50,15 +56,18 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
               'You have pushed the button this many times:',
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            ValueListenableBuilder(
+              valueListenable: counter,
+              builder: (context, value, _) => Text(
+                '$value',
+                style: Theme.of(context).textTheme.headline4,
+              ),
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: counter.increment,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
