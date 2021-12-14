@@ -28,7 +28,7 @@ void main() {
   });
 
   group('animated container', () {
-    final containerFinder = find.byType(AnimatedContainer);
+    final containerFinder = find.byKey(const ValueKey('first'));
 
     testWidgets('exist', (WidgetTester tester) async {
       // Build our app and trigger a frame.
