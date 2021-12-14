@@ -7,7 +7,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:sirius_example/main.dart';
 
 void main() {
@@ -26,5 +25,35 @@ void main() {
     // Verify that our counter has incremented.
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
+  });
+
+  group('animated container', () {
+    final containerFinder = find.byType(AnimatedContainer);
+
+    testWidgets('exist', (WidgetTester tester) async {
+      // Build our app and trigger a frame.
+      await tester.pumpWidget(const MyApp());
+      expect(containerFinder, findsOneWidget);
+    });
+
+    testWidgets('changes color after tap', (WidgetTester tester) async {
+      // Build our app and trigger a frame.
+      await tester.pumpWidget(const MyApp());
+
+      var decorationStart = tester
+          .widget<AnimatedContainer>(containerFinder)
+          .decoration as BoxDecoration;
+
+      expect(decorationStart.color, Colors.red);
+
+      await tester.tap(find.byIcon(Icons.add));
+      await tester.pump();
+
+      final decorationEnd = tester
+          .widget<AnimatedContainer>(containerFinder)
+          .decoration as BoxDecoration;
+
+      expect(decorationEnd.color, Colors.blue);
+    });
   });
 }

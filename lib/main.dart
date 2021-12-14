@@ -63,6 +63,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: Theme.of(context).textTheme.headline4,
               ),
             ),
+            ValueListenableBuilder<int>(
+              valueListenable: counter,
+              builder: (context, value, _) => AnimatedContainer(
+                duration: const Duration(seconds: 1),
+                color: value % 2 == 0 ? Colors.red : Colors.blue,
+              ),
+            ),
           ],
         ),
       ),
