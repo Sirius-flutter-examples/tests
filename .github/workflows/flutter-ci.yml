@@ -16,8 +16,6 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         flutter: [ '2.8.0' ]
-        include:
-          - os: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v2
