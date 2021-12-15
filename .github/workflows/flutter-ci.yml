@@ -37,7 +37,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ ubuntu-latest, macos-latest ]
+        os: [ 'ubuntu-latest' ]
         flutter: [ '2.8.0' ]
         include:
           - os: ubuntu-latest
@@ -55,6 +55,10 @@ jobs:
         with:
           flutter-version: ${{ matrix.flutter }}
       - run: flutter build ${{ matrix.build }}
+      - uses: actions/upload-artifact@v1
+          with:
+            name: release-${{ matrix.build }}
+            path: build/app/outputs/apk/release/app-release.apk
 
 #      - name: Firebase App Distribution
 #        uses: wzieba/Firebase-Distribution-Github-Action@v1.3.2
@@ -64,7 +68,3 @@ jobs:
 #          groups: testers
 #          file: app/build/outputs/apk/release/app-release-unsigned.apk
 
-#    - uses: actions/upload-artifact@v1
-#        with:
-#          name: release-${{ matrix.build }}
-#          path: build/app/outputs/apk/release/app-release.apk
