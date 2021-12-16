@@ -8,14 +8,14 @@ environment:
   sdk: ">=2.15.0 <3.0.0"
 
 dependencies:
-  integration_test:
-    sdk: flutter
   flutter:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
+  integration_test:
+    sdk: flutter
   flutter_test:
     sdk: flutter
 

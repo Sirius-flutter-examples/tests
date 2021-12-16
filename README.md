@@ -1,10 +1,18 @@
+### CI
+[Лекция про сборку и CI]
 
+[dartvm by mraleph] - про внутреннее устройство dart vm
 
+[codemagic] - простой сервис для сборок приложений на flutter
 
+[github actions] - дока по github actions (для публичных репозиториев можно использовать бесплатно практически без ограничений)
 
+[flutter deployment] - оффициальная дока по подготовке приложения к публикации
 
-### Полезные ссылки
-[Презентация] 
+[flutter CI/CD] - оффициальные рекомендации по настройки CI/CD
+
+### Тесты
+[Лекция про тесты] 
 
 [SOLID] - очень классный доклад хорошо раскрывающий принципы SOLID, очень советую посмотреть полностью (он сделан в контексте java и spring, но очень доступно для любого бекграунда)
 
@@ -26,7 +34,7 @@
 
 
 <!-- Links -->
-[Презентация]: ./docs/Tests.pdf
+[Лекция про тесты]: ./docs/Tests.pdf
 [SOLID]: https://www.youtube.com/watch?v=rd6wxPzXQvo
 [Fowler docs]: https://martinfowler.com/articles/mocksArentStubs.html
 [Fowler test pyramid]: https://martinfowler.com/articles/practical-test-pyramid.html
@@ -36,3 +44,11 @@
 [golden_toolkit]: https://pub.dev/packages/golden_toolkit
 [flutter/test]:https://github.com/flutter/flutter/packages/flutter/test
 [Official plugins rules]: https://github.com/flutter/flutter/wiki/Plugin-Tests
+
+
+[Лекция про сборку и CI]: ./docs/Build_CI.pdf
+[dartvm by mraleph]: https://mrale.ph/dartvm/
+[codemagic]: https://codemagic.io/start/
+[github actions]: https://docs.github.com/en/actions
+[flutter deployment]: https://docs.flutter.dev/deployment/
+[flutter CI/CD]: https://docs.flutter.dev/deployment/cd
